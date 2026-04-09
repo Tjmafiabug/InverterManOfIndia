@@ -7,7 +7,7 @@ interface Props {
 const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
 ---
 
-<header id="website-header" class="transition-colors duration-300" style={`position:relative;z-index:2000;background-color:${bgColor};color:rgb(255,255,255)`}>
+<header id="website-header" class="fixed top-0 left-0 w-full transition-all duration-300 z-[2000]" style={`background-color:${bgColor};color:rgb(255,255,255)`}>
   <div id="header-container" class="relative z-10 grid items-center lg:gap-6 xl:gap-10 mx-auto pt-6 pb-6 px-6 lg:px-12" style="grid-template-columns:auto auto auto">
     <div class="col-span-2 lg:col-span-1">
       <a class="grid max-w-full" href={import.meta.env.BASE_URL}>
@@ -74,6 +74,33 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
 </header>
 
 <script>
+  function initHeaderEffects() {
+    const header = document.getElementById('website-header');
+    
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        header.style.backgroundColor = 'rgba(19, 21, 22, 0.95)';
+        header.style.backdropFilter = 'blur(10px)';
+        header.style.paddingTop = '0px';
+        header.style.paddingBottom = '0px';
+        header.classList.add('shadow-xl');
+      } else {
+        const initialBg = header.getAttribute('data-initial-bg') || 'transparent';
+        header.style.backgroundColor = initialBg;
+        header.style.backdropFilter = 'none';
+        header.style.paddingTop = '';
+        header.style.paddingBottom = '';
+        header.classList.remove('shadow-xl');
+      }
+    };
+
+    if (header) {
+      header.setAttribute('data-initial-bg', header.style.backgroundColor);
+      window.addEventListener('scroll', handleScroll);
+      handleScroll(); // Initial check
+    }
+  }
+
   function initDrawer() {
     const btn = document.getElementById('mobile-menu-button');
     const closeBtn = document.getElementById('close-drawer-button');
@@ -100,17 +127,20 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
       document.body.style.overflow = '';
     }
 
-    // Attach to touchstart for faster response on mobile
     btn.onclick = openDrawer;
     closeBtn.onclick = closeDrawer;
     backdrop.onclick = closeDrawer;
-
-    // Use specific event listeners for links to prevent closing without navigation
-    // We remove the automatic `closeDrawer` from links as per user request to have the X button handle closing.
   }
 
+  // Run on first load
+  initHeaderEffects();
   initDrawer();
-  document.addEventListener('astro:after-swap', initDrawer);
+
+  // Run on View Transitions
+  document.addEventListener('astro:after-swap', () => {
+    initHeaderEffects();
+    initDrawer();
+  });
 </script>
 
 <style>
