@@ -8,7 +8,7 @@ const newsItems = (await getCollection('news')).sort(
   (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
 
-const bgColors = ["rgb(13,15,16)", "rgb(19,21,22)"];
+const bgColors = ["rgb(4,4,4)", "rgb(66,94,130)"];
 ---
 
 <BaseLayout
@@ -33,13 +33,13 @@ const bgColors = ["rgb(13,15,16)", "rgb(19,21,22)"];
             <section class="relative">
               <div
                 class="flex flex-none flex-shrink-0 relative break-word items-center fix-safari-flickering"
-                style={`min-height:75vh;z-index:${100 - index};padding-top:100px;padding-bottom:120px;clip-path:url(#${curveId});background-color:${bgColor};${!isFirst ? 'margin-top:-100px;' : ''}`}
+                style={`min-height:70vh;z-index:${100 - index};padding-top:80px;padding-bottom:120px;clip-path:url(#${curveId});background-color:${bgColor};${!isFirst ? 'margin-top:-90px;' : ''}`}
               >
                 <div class="relative z-10 container mx-auto px-6 lg:px-12 w-full">
-                  <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 text-white">
+                  <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 text-white">
 
-                    <div class="flex-1 w-full lg:max-w-[50%] group">
-                      <div class="relative w-full overflow-hidden rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] aspect-w-16 aspect-h-9">
+                    <div class="flex-1 w-full lg:max-w-[50%]">
+                      <div class="relative w-full overflow-hidden rounded-2xl md:rounded-3xl shadow-2xl" style="aspect-ratio:16/9">
                         <img
                           alt={item.data.image?.alt || item.data.title}
                           src={item.data.image?.url 
@@ -47,28 +47,23 @@ const bgColors = ["rgb(13,15,16)", "rgb(19,21,22)"];
                                 ? item.data.image.url 
                                 : `${import.meta.env.BASE_URL}${item.data.image.url.startsWith('/') ? item.data.image.url.slice(1) : item.data.image.url}`)
                             : `${import.meta.env.BASE_URL}assets/default-blog.jpg`}
-                          class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                          class="w-full h-full object-cover"
                           onerror={`this.src='${import.meta.env.BASE_URL}assets/default-blog.jpg'`}
                         />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                       </div>
                     </div>
 
-                    <div class="flex-1 flex flex-col items-start text-left max-w-2xl">
-                      <div class="flex items-center gap-3 mb-6">
-                        <span class="px-3 py-1 bg-blue-600/20 text-blue-400 text-[10px] font-bold uppercase tracking-widest rounded-full border border-blue-600/30">News Update</span>
-                        <span class="text-zinc-500 text-xs font-medium italic">{new Date(item.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                      </div>
-                      <h3 class="heading-large font-bold mb-8 leading-tight tracking-tight drop-shadow-sm">{item.data.title}</h3>
-                      <p class="body-normal leading-relaxed mb-12 opacity-80 text-lg">{item.data.summary}</p>
-                      
+                    <div class="flex-1 flex flex-col items-start text-left">
+                      <span class="text-[11px] font-bold uppercase tracking-[0.2em] mb-4" style="color:rgb(96,165,250)">Press &amp; Update</span>
+                      <h3 class="heading-large font-bold mb-6 leading-tight" style="color:rgb(255,255,255)">{item.data.title}</h3>
+                      <p class="body-normal leading-relaxed mb-10 max-w-2xl" style="color:rgba(255,255,255,0.9)">{item.data.summary}</p>
                       <a
-                        class="button md py-4 px-10 bg-white text-zinc-900 border-none rounded-2xl font-bold flex items-center gap-3 hover:gap-5 transition-all shadow-xl shadow-white/5"
+                        class="button md"
                         target="_blank"
                         href={item.data.link}
+                        style="border-width:2px;border-style:solid;background-color:rgb(255,255,255);color:rgb(17,24,39);border-radius:8px;border-color:rgb(255,255,255);font-weight:600;padding:12px 32px;"
                       >
-                        Read Full Story
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        View Article
                       </a>
                     </div>
 
@@ -78,7 +73,7 @@ const bgColors = ["rgb(13,15,16)", "rgb(19,21,22)"];
                 <svg style="position:absolute;width:0;height:0">
                   <defs>
                     <clipPath id={curveId} clipPathUnits="objectBoundingBox">
-                      <path d="M0,0 H1 V0.95 C0.7,1,0.3,1,0,0.95 Z" />
+                      <path d="M0,0 H1 V0.93 C0.75,1,0.25,1,0,0.93 Z" />
                     </clipPath>
                   </defs>
                 </svg>
@@ -87,10 +82,6 @@ const bgColors = ["rgb(13,15,16)", "rgb(19,21,22)"];
           );
         })}
       </main>
-
-      <div class="py-20 text-center bg-zinc-950 border-t border-white/5">
-         <p class="text-zinc-600 font-medium">End of news feed. Check back later for more updates.</p>
-      </div>
 
       <Footer />
     </div>

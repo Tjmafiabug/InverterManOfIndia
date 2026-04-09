@@ -24,13 +24,12 @@ const posts = (await getCollection('blog')).sort(
       <main>
         {/* HERO */}
         <section class="relative">
-          <div class="flex flex-none flex-shrink-0 relative break-word items-center fix-safari-flickering" style="min-height:35vh;z-index:100;padding-top:80px;padding-bottom:120px;clip-path:url(#blog-hero-curve);">
+          <div class="flex flex-none flex-shrink-0 relative break-word items-center fix-safari-flickering" style="min-height:30vh;z-index:100;padding-top:80px;padding-bottom:120px;clip-path:url(#blog-hero-curve);">
             <div class="absolute inset-0 z-0 pointer-events-none" style="background-color:rgb(19, 21, 22)"></div>
             <div class="relative z-10 container mx-auto px-6 lg:px-12">
-              <div class="text-center transition-all ease-in-out duration-700 opacity-100 translate-y-0 text-white">
-                <span class="text-blue-500 font-bold tracking-widest uppercase text-xs mb-4 block">Knowledge Center</span>
-                <h1 class="heading-large font-bold mb-6">Inverter Man Insights</h1>
-                <p class="body-normal opacity-70 max-w-2xl mx-auto text-lg italic">Expert advice, reviews, and guides on inverters and clean energy. Stay powered with our reliable insights.</p>
+              <div class="text-center transition-all ease-in-out duration-500 opacity-100 translate-y-0 text-white">
+                <h1 class="heading-xlarge font-bold mb-6">Our Blog</h1>
+                <p class="body-normal opacity-80 max-w-2xl mx-auto">Expert advice, reviews, and guides on inverters and clean energy. Stay powered with our reliable insights.</p>
               </div>
             </div>
             <svg class="absolute bottom-0 left-0 w-full" height="0" width="0">
@@ -44,34 +43,28 @@ const posts = (await getCollection('blog')).sort(
         </section>
 
         {/* POSTS GRID */}
-        <section class="relative py-24 lg:py-32" style="margin-top:-60px;z-index:90;background-color:rgb(13,15,16);">
+        <section class="relative py-24 lg:py-32" style="margin-top:-60px;z-index:90;background-color:rgb(19,21,22);">
           <div class="container mx-auto px-6 lg:px-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
               {posts.map((post) => (
-                <a class="group card-glow flex flex-col h-full bg-zinc-900/30 p-5 rounded-[2.5rem] transition-all" href={`${import.meta.env.BASE_URL}posts/blog/${post.id}`}>
-                  <div class="relative overflow-hidden mb-8 rounded-[2rem] shadow-inner aspect-w-16 aspect-h-9">
-                    <img
-                      src={post.data.image?.url 
-                        ? (post.data.image.url.startsWith('http') || post.data.image.url.startsWith(import.meta.env.BASE_URL)
-                            ? post.data.image.url 
-                            : `${import.meta.env.BASE_URL}${post.data.image.url.startsWith('/') ? post.data.image.url.slice(1) : post.data.image.url}`)
-                        : `${import.meta.env.BASE_URL}assets/default-blog.jpg`}
-                      alt={post.data.title}
-                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div class="absolute top-4 left-4">
-                       <span class="px-4 py-2 bg-black/60 backdrop-blur-md rounded-full text-[10px] font-bold text-white uppercase tracking-widest">Article</span>
+                <a class="group block" href={`${import.meta.env.BASE_URL}posts/blog/${post.id}`}>
+                  <div class="relative overflow-hidden mb-6 rounded-2xl md:rounded-3xl lg:rounded-4xl shadow-lg group-hover:shadow-2xl transition-all duration-300">
+                    <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                      <img
+                        src={post.data.image?.url 
+                          ? (post.data.image.url.startsWith('http') || post.data.image.url.startsWith(import.meta.env.BASE_URL)
+                              ? post.data.image.url 
+                              : `${import.meta.env.BASE_URL}${post.data.image.url.startsWith('/') ? post.data.image.url.slice(1) : post.data.image.url}`)
+                          : `${import.meta.env.BASE_URL}assets/default-blog.jpg`}
+                        alt={post.data.title}
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
                     </div>
                   </div>
-                  <div class="flex flex-col flex-1 px-3">
-                    <span class="text-xs font-bold uppercase tracking-widest mb-4 opacity-40 text-white">{new Date(post.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                    <h3 class="heading-medium text-2xl mb-4 group-hover:text-blue-400 transition-colors duration-300" style="color:rgb(255,255,255)">{post.data.title}</h3>
-                    <p class="body-normal line-clamp-3 text-base opacity-60 mb-6" style="color:rgba(255,255,255,1)">{post.data.description}</p>
-                    
-                    <div class="mt-auto flex items-center justify-between pt-6 border-t border-white/5">
-                       <span class="text-blue-500 font-bold text-sm">Read More</span>
-                       <svg class="w-5 h-5 text-zinc-600 group-hover:text-blue-500 transition-all group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                    </div>
+                  <div class="flex flex-col gap-3">
+                    <span class="text-sm font-bold uppercase tracking-widest" style="color:rgba(255,255,255,0.5)">{new Date(post.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                    <h3 class="heading-medium transition-colors" style="color:rgb(255,255,255)">{post.data.title}</h3>
+                    <p class="body-normal line-clamp-3" style="color:rgba(255,255,255,0.7)">{post.data.description}</p>
                   </div>
                 </a>
               ))}

@@ -18,23 +18,23 @@ const posts = (await getCollection('blog')).sort(
       <!-- Spacer for Fixed Header -->
       <div class="h-[60px] lg:h-[70px]"></div>
 
-      <!-- HERO SECTION -->
+      <!-- HERO SECTION: dark gradient overlay, background image, curve bottom -->
       <section class="relative">
         <div id="hero-section" data-text-color="#FFFFFF" class="flex relative break-word items-center fix-safari-flickering" style="z-index:39;min-height:calc(0px);padding-top:80px;padding-bottom:120px;clip-path:url('#hero-curveUp')">
           <div class="w-full flex break-word transition-all duration-300 items-center">
             <div class="absolute inset-0 z-10 pointer-events-none">
               <div class="absolute inset-0 z-10" style="background-image:linear-gradient(rgb(36,42,46),rgb(19,21,22));opacity:0.5"></div>
               <div class="absolute inset-0 z-0 bg-white">
-                <span class="block overflow-hidden absolute inset-0">
-                  <img alt="background" src={`${import.meta.env.BASE_URL}assets/hero.jpg`} class="absolute inset-0 w-full h-full object-cover object-[50%_15%]"/>
+                <span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0">
+                  <img alt="background" src={`${import.meta.env.BASE_URL}assets/hero.jpg`} style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover;object-position:50% 15%"/>
                 </span>
               </div>
             </div>
-            <div class="relative z-10 container mx-auto px-5 md:px-6 pt-12 lg:pt-20 pb-12 lg:pb-20">
-              <div class="transition-all ease-in-out duration-700 opacity-100 translate-y-0 relative z-10 w-full h-full">
+            <div class="relative z-10 container mx-auto px-5 md:px-6 transition-all duration-300 pt-12 lg:pt-20 pb-12 lg:pb-20">
+              <div class="transition-all ease-in-out duration-500 opacity-100 translate-y-0 relative z-10 w-full h-full">
                 <div class="flex w-full gap-10 lg:gap-20 transition-all duration-300 flex-col lg:flex-row justify-center">
                   <div class="flex-1 flex flex-col gap-4 w-full max-w-3xl items-center text-center mx-auto">
-                    <h1 class="break-word heading-xlarge drop-shadow-2xl" style="color:rgb(255,255,255)">From Entrepreneur to Innovator</h1>
+                    <h1 class="break-word heading-xlarge" style="color:rgb(255,255,255)">From Entrepreneur to Innovator</h1>
                   </div>
                 </div>
               </div>
@@ -49,28 +49,35 @@ const posts = (await getCollection('blog')).sort(
         </div>
       </section>
 
-      <!-- ABOUT SECTION -->
+      <!-- ABOUT SECTION: dark bg #3f3f4f, white text, curve bottom -->
       <section class="relative">
         <div id="about-section" class="flex flex-none flex-shrink-0 relative break-word items-center fix-safari-flickering" style="min-height:calc(0px);z-index:38;margin-top:-100px;padding-top:150px;padding-bottom:89px;clip-path:url('#about-curveUp')">
           <div class="absolute inset-0 z-10 pointer-events-none">
             <div class="absolute inset-0 z-10" style="background-color:rgb(63,63,79)"></div>
           </div>
           <div class="relative z-10 container mx-auto pt-16 lg:pt-32 pb-16 lg:pb-32">
-            <div class="transition-all ease-in-out duration-700 opacity-100 translate-y-0 flex w-full gap-16 lg:gap-24 flex-col-reverse justify-center">
-              <div class="flex-1 flex flex-col max-w-4xl items-center text-center mx-auto">
-                <div class="rich-text-block space-y-6 text-lg leading-relaxed" style="color:rgb(255,255,255)">
-                  <h2 class="heading-large mb-12">A Vision Beyond Power – Remembering Kunwer Sachdev</h2>
+            <div class="transition-all ease-in-out duration-500 opacity-100 translate-y-0 flex w-full gap-10 lg:gap-20 flex-col-reverse justify-center">
+              <div class="flex-1 flex flex-col max-w-240 items-center text-center mx-auto">
+                <div class="rich-text-block" style="color:rgb(255,255,255)">
+                  <h2 style="white-space:pre-line;text-align:center">A Vision Beyond Power – Remembering Kunwer Sachdev</h2>
                   <p>For over two decades, I had the rare privilege of walking beside a man who didn't just build a company — he built a movement.</p>
                   <p>This website is my heartfelt tribute to Kunwer Sachdev, the founder of Su-Kam — a name that once echoed across every household and street where power failed, but hope still burned bright.</p>
-                  <p>... Standing beside him through late nights of relentless innovation ...</p>
-                  <p class="font-bold italic text-blue-300">"He didn't follow trends — he set them."</p>
-                  <p>True visionaries never stop. Today, Kunwer Sachdev is once again building through his newest venture: <a href="https://kunwwer.ai" target="_blank" class="text-blue-400 underline hover:text-blue-300 transition-colors">Kunwwer.AI</a>.</p>
-                  <p class="pt-8 border-t border-white/10 opacity-70 italic">— A silent witness to his brilliance, a student of his fire, and a keeper of his legacy.</p>
+                  <p>I didn't just read about his journey — I lived it. I stood beside him through the chaos and creation, through late nights of relentless innovation and early mornings of impossible ideas turned real.</p>
+                  <p>He was more than an entrepreneur. He was a disruptor of technology. A man who could look at what already existed — and reinvent it from the ground up.<br/>He didn't follow trends — he set them.<br/>He didn't just solve problems — he challenged the very way we think about them.</p>
+                  <p>With Su-Kam, he redefined India's power backup industry. He didn't just build inverters — he built a brand that ran through homes, businesses, villages, and lives. 25 years of blood, sweat, and vision went into creating something that felt immortal.</p>
+                  <p>But when he lost Su-Kam, what hurt most wasn't the fall of a company. It was watching a man lose something that was a part of his soul.<br/>It was a heartbreak only those closest to him could truly understand.</p>
+                  <p>Yet true visionaries never stop.</p>
+                  <p>Today, Kunwer Sachdev is once again building — this time at the frontiers of Artificial Intelligence, through his newest venture: Kunwwer.AI.<br/>With the same fire and clarity, he is now working to train the next generation, mentoring young minds, and leading India into an AI-powered future.<br/>And I know — as surely as I've known him for 20+ years — he will be a disruptor in this space too.</p>
+                  <p>Because that's who Kunwer Sachdev is.<br/>A creator. A mentor. A storm in still air.<br/>A man who turns setbacks into revolutions.</p>
+                  <p>I choose not to reveal my identity here — not out of secrecy, but out of deep respect.<br/>I work in the same industry as him, and every inch of who I am today — every value I carry, every success I've earned — I owe to him.<br/>His guidance shaped me, his vision fueled me, and his presence continues to inspire me, even from a distance.</p>
+                  <p>This website is not just a tribute — it is a thank you, whispered into the winds of memory.<br/>A testament to what I saw with my own eyes.<br/>A promise to keep telling the world about the legend who changed my life, and the lives of countless others.<br/>💔 This is not a goodbye. This is a salute — to a life that never stopped building.<br/>— A silent witness to his brilliance, a student of his fire, and a keeper of his legacy.</p>
                 </div>
               </div>
               <div class="flex-1 flex w-full h-full items-center lg:max-w-1/2 mx-auto text-center">
-                <div class="flex-shrink-0 relative w-full h-full mx-auto aspect-w-16 aspect-h-9 group">
-                  <img alt="Kunwer Sachdev" src="https://cdn.durable.co/getty/25PZW8nDpD6pHCHd3MTR37prgUoE8b8My0VFqimBOH4MxQzwesus78LoJHjirp0w.jpeg" class="rounded-2xl md:rounded-3xl lg:rounded-4xl object-cover shadow-2xl transition-transform duration-700 group-hover:scale-[1.03]"/>
+                <div class="flex-shrink-0 relative w-full h-full mx-auto aspect-w-16 aspect-h-9">
+                  <span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0">
+                    <img alt="Kunwer Sachdev" src="https://cdn.durable.co/blocks/293Wfqljka6ZgVIyCJvFvxWuqn0G6eXUuvTaBEZdctfMgt60RKHXli0aCZlKb24b.jpg" decoding="async" class="rounded-2xl md:rounded-3xl lg:rounded-4xl" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover;object-position:center center"/>
+                  </span>
                 </div>
               </div>
             </div>
@@ -84,46 +91,38 @@ const posts = (await getCollection('blog')).sort(
         </div>
       </section>
 
-      <!-- RECENT POSTS SECTION -->
+      <!-- RECENT POSTS SECTION: near-black bg -->
       <section class="relative">
         <div id="recent-posts-section" class="flex flex-none flex-shrink-0 relative break-word items-center" style="min-height:calc(0px);z-index:37;margin-top:-90px;padding-top:90px;padding-bottom:0px">
           <div class="absolute inset-0 z-10 pointer-events-none">
-            <div class="absolute inset-0 z-10" style="background-color:rgb(13,15,16)"></div>
+            <div class="absolute inset-0 z-10" style="background-color:rgb(19,21,22)"></div>
           </div>
-          <div class="relative z-10 container mx-auto pt-16 lg:pt-32 pb-16 lg:pb-32 px-6">
-            <div class="flex flex-col gap-4 mb-16 items-center text-center mx-auto">
-              <h2 class="heading-large underline decoration-blue-600 decoration-4 underline-offset-8" style="color:rgb(255,255,255)">Recent Discoveries</h2>
+          <div class="relative z-10 container mx-auto pt-16 lg:pt-32 pb-16 lg:pb-32">
+            <div class="flex flex-col gap-4 mb-10 items-center text-center mx-auto">
+              <h2 class="break-word heading-large" style="color:rgb(255,255,255)">Recent blog posts</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {posts.map((post, i) => (
-                <a class="group card-glow flex flex-col bg-zinc-900/40 rounded-3xl overflow-hidden p-4 h-full" href={`${import.meta.env.BASE_URL}posts/blog/${post.id}`}>
-                  <div class="relative overflow-hidden mb-6 rounded-2xl aspect-w-16 aspect-h-9">
-                    <img 
-                      src={post.data.image?.url 
-                        ? (post.data.image.url.startsWith('http') || post.data.image.url.startsWith(import.meta.env.BASE_URL)
-                            ? post.data.image.url 
-                            : `${import.meta.env.BASE_URL}${post.data.image.url.startsWith('/') ? post.data.image.url.slice(1) : post.data.image.url}`) 
-                        : `${import.meta.env.BASE_URL}assets/default-blog.jpg`}
-                      alt={post.data.title}
-                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </div>
-                  <div class="flex flex-col flex-1 px-2 pb-2">
-                    <div class="flex items-center gap-2 mb-3">
-                      <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                      <p class="text-xs uppercase tracking-widest text-zinc-500 font-bold">{post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
+                <a class="group" href={`${import.meta.env.BASE_URL}posts/blog/${post.id}`}>
+                  <div class="transition-all ease-in-out duration-500" style={`transition-delay:${(i+1)*100}ms`}>
+                    <div class="relative overflow-hidden mb-6 rounded-2xl md:rounded-3xl lg:rounded-4xl">
+                      <div class="relative flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 aspect-w-16 aspect-h-9" 
+                           style={`background-image:url(${post.data.image?.url 
+                             ? (post.data.image.url.startsWith('http') || post.data.image.url.startsWith(import.meta.env.BASE_URL)
+                                 ? post.data.image.url 
+                                 : `${import.meta.env.BASE_URL}${post.data.image.url.startsWith('/') ? post.data.image.url.slice(1) : post.data.image.url}`) 
+                             : `${import.meta.env.BASE_URL}assets/default-blog.jpg`});background-position:center;background-size:cover;color:#FFFFFF`}></div>
                     </div>
-                    <h3 class="heading-medium text-xl lg:text-2xl mb-4 group-hover:text-blue-400 transition-colors" style="color:rgb(255,255,255)">{post.data.title}</h3>
-                    <div class="mt-auto flex items-center gap-2 text-blue-500 font-bold text-sm">
-                      Read Full Story
-                      <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    <div class="text-center">
+                      <h3 class="heading-medium mb-2 group-hover:underline" style="color:rgb(255,255,255)">{post.data.title}</h3>
+                      <p class="body-normal" style="color:rgb(255,255,255)">{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
                     </div>
                   </div>
                 </a>
               ))}
             </div>
-            <div class="mt-12 lg:mt-20 text-center">
-              <a class="button md py-4 px-10 border-2 border-white rounded-xl font-bold text-white hover:bg-white hover:text-black transition-all" href={`${import.meta.env.BASE_URL}posts/blog`}>Explore All Articles</a>
+            <div class="mt-6 lg:mt-10 text-center">
+              <a class="button md" target="_self" style="border-width:2px;border-style:solid;box-shadow:none;font-family:var(--body-fontFamily);font-weight:var(--body-fontWeight,500);font-style:var(--body-fontStyle);background-color:transparent;color:rgb(255,255,255);border-radius:8px;border-color:rgb(255,255,255)" href={`${import.meta.env.BASE_URL}posts/blog`}>View more</a>
             </div>
           </div>
         </div>
