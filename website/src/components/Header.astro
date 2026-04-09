@@ -14,6 +14,7 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
         <h2 class="header-logo max-w-full whitespace-nowrap overflow-hidden overflow-ellipsis" style="color:rgb(255,255,255);font-family:'IBM Plex Sans',sans-serif;font-weight:600;line-height:initial;font-size:clamp(1rem,2vw,1.5rem);margin:0">invertermanofindia</h2>
       </a>
     </div>
+    
     <div class="hidden lg:flex items-center justify-end gap-10 lg:col-span-2">
       <ul class="hidden items-center flex-wrap lg:flex justify-end gap-x-6" style="color:rgb(255,255,255)">
         <li class={`border-b-2 transition-colors ${activePage === 'home' ? 'border-white' : 'border-transparent hover:border-white'}`}>
@@ -33,67 +34,84 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
         </a>
       </div>
     </div>
+
     <div class="ml-auto lg:hidden">
-      <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition-colors duration-300" style="color:rgb(255,255,255)">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="block h-5 w-5">
-          <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"></path>
+      <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none" style="color:rgb(255,255,255)">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
       </button>
     </div>
   </div>
 
-  {/* Mobile Menu Overlay */}
-  <div id="mobile-menu" class="fixed inset-0 z-[3000] hidden bg-black/95 backdrop-blur-md">
-    <div class="flex flex-col h-full px-6 py-8">
-      <div class="flex items-center justify-between mb-12">
-        <h2 class="header-logo" style="color:rgb(255,255,255);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:1.5rem;">invertermanofindia</h2>
-        <button id="close-menu-button" class="p-2 text-white">
+  <!-- Mobile Drawer Backdrop -->
+  <div id="drawer-backdrop" class="fixed inset-0 z-[2500] bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+  <!-- Mobile Drawer Panel (Right Side) -->
+  <div id="mobile-drawer" class="fixed top-0 right-0 h-full w-[80%] max-w-[320px] z-[3000] bg-zinc-900 shadow-2xl translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="flex flex-col h-full bg-zinc-900 text-white">
+      <div class="flex items-center justify-between px-6 py-6 border-b border-zinc-800">
+        <span class="font-bold text-lg">Menu</span>
+        <button id="close-drawer-button" class="p-2 text-zinc-400 hover:text-white">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
-      <nav class="flex flex-col gap-8">
-        <a href={import.meta.env.BASE_URL} class={`text-3xl font-semibold ${activePage === 'home' ? 'text-blue-500' : 'text-white'}`}>Home</a>
-        <a href={`${import.meta.env.BASE_URL}posts/news`} class={`text-3xl font-semibold ${activePage === 'news' ? 'text-blue-500' : 'text-white'}`}>News</a>
-        <a href={`${import.meta.env.BASE_URL}posts/blog`} class={`text-3xl font-semibold ${activePage === 'blog' ? 'text-blue-500' : 'text-white'}`}>Blogs</a>
-        <a href="mailto:invertermanofindia@gmail.com" class="mt-4 text-xl font-bold py-4 px-8 bg-blue-600 text-white rounded-xl text-center">Contact Us</a>
+      
+      <nav class="flex flex-col py-4">
+        <a href={import.meta.env.BASE_URL} class={`px-8 py-5 text-xl font-medium border-b border-zinc-800/50 ${activePage === 'home' ? 'text-blue-500 bg-zinc-800/20' : 'text-zinc-200'}`}>Home</a>
+        <a href={`${import.meta.env.BASE_URL}posts/news`} class={`px-8 py-5 text-xl font-medium border-b border-zinc-800/50 ${activePage === 'news' ? 'text-blue-500 bg-zinc-800/20' : 'text-zinc-200'}`}>News</a>
+        <a href={`${import.meta.env.BASE_URL}posts/blog`} class={`px-8 py-5 text-xl font-medium border-b border-zinc-800/50 ${activePage === 'blog' ? 'text-blue-500 bg-zinc-800/20' : 'text-zinc-200'}`}>Blogs</a>
       </nav>
+
+      <div class="mt-auto px-6 py-8">
+        <a href="mailto:invertermanofindia@gmail.com" class="block w-full py-4 bg-blue-600 text-white font-bold rounded-xl text-center shadow-lg shadow-blue-900/40">
+          Contact Us
+        </a>
+      </div>
     </div>
   </div>
 </header>
 
 <script>
-  const setupMenu = () => {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const closeMenuButton = document.getElementById('close-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+  function initDrawer() {
+    const btn = document.getElementById('mobile-menu-button');
+    const closeBtn = document.getElementById('close-drawer-button');
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('drawer-backdrop');
 
-    if (mobileMenuButton && mobileMenu && closeMenuButton) {
-      mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-      });
+    if (!btn || !drawer || !backdrop || !closeBtn) return;
 
-      closeMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        document.body.style.overflow = '';
-      });
-
-      // Close menu when a link is clicked
-      const links = mobileMenu.querySelectorAll('nav a');
-      links.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          document.body.style.overflow = '';
-        });
-      });
+    function openDrawer() {
+      drawer.classList.remove('translate-x-full');
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = 'hidden';
     }
-  };
 
-  // Run on first load
-  setupMenu();
+    function closeDrawer() {
+      drawer.classList.add('translate-x-full');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = '';
+    }
 
-  // Run on View Transitions (if enabled in Astro)
-  document.addEventListener('astro:after-swap', setupMenu);
+    btn.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    backdrop.addEventListener('click', closeDrawer);
+
+    // Close on link click
+    drawer.querySelectorAll('nav a').forEach(a => {
+      a.addEventListener('click', closeDrawer);
+    });
+  }
+
+  initDrawer();
+  document.addEventListener('astro:after-swap', initDrawer);
 </script>
+
+<style>
+  /* Ensure Tailwind classes work if not pre-parsed */
+  #mobile-drawer {
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+  }
+</style>
