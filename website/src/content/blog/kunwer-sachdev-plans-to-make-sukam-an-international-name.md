@@ -1,0 +1,13 @@
+---
+title: "Kunwer Sachdev- Plans to make Sukam an international name"
+pubDate: 2025-07-04
+description: "Insights and updates about inverters and power solutions from the Inverter Man of India."
+author: "Kunwer Sachdev"
+image: {
+    url: "/assets/1bKqesPY1ImlqGpJCBTy4sJHynxMQpBYb2G9cJq2YnhdMhg9vXmgYiqHzhdALGzI.png",
+    alt: "Kunwer Sachdev- Plans to make Sukam an international name"
+}
+tags: []
+---
+
+<img src="/assets/1bKqesPY1ImlqGpJCBTy4sJHynxMQpBYb2G9cJq2YnhdMhg9vXmgYiqHzhdALGzI.png" class="featured-image" /><br/><p>Who knew that the guy who use to fix the cable for TV would be a leading industrialist one day? This cable guy, who left the sales executive job, had stars of becoming a successful man in his eyes. He is the man who has not only achieved &nbsp; success in his life but has also solved the problem of power cuts. He is the person who firstly manufactured remarkable inverter and helped the citizenry of our country in overcoming from the problems of power-cuts. Now in today's time he has achieved that success where he runs India's biggest inverter manufacturing &nbsp; company named Su-kam. &nbsp;He is providing effective products and services of his organization not only to our country but also to other countries.&nbsp;</p><figure id="figure-0zrx9cg4qsmcej67ad"><img id="0zrx9cg4qsmcej67ad" src="/assets/1bKqesPY1ImlqGpJCBTy4sJHynxMQpBYb2G9cJq2YnhdMhg9vXmgYiqHzhdALGzI.png" alt="" title="" class="object-cover bg-gray-100 rounded-2xl md:rounded-3xl lg:rounded-4xl" style="aspect-ratio: 3/2; object-position: 35% 0%;" data-corners="default" data-aspect="3:2" data-caption="Kunwer Sachdev - Plans to make Sukam an international name" data-positionX="35%" data-positionY="0%" data-fullWidth="false"/><figcaption class="body-normal text-gray-500 mt-2">Kunwer Sachdev - Plans to make Sukam an international name</figcaption></figure><p>He started Sukam in 1998 and it turned out to be a great success. The products manufactured by Sukam have gained appreciation and recognition from people and experts. People consider Sukam to be a reliable brand and it has become one of the highest selling brands in the market. Kunwer Sachdeva aims to make Sukam a global brand and make it an in-house brand for top companies in the world. The brand has announced that it is going to put up solar panels in educational institutions in Africa.</p><p><br>The drive has been welcomed by everyone and the experts have appreciated the drive conducted by Sukam. There are plans to conduct the same drive in different countries as well. Sukam sells its products not only in the domestic market but also international as well. There are many multi national companies that use Sukam for effective power solutions.</p><p><br>&nbsp;</p><p><br></p>

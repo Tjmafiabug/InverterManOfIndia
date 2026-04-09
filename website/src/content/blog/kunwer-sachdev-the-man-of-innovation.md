@@ -1,0 +1,13 @@
+---
+title: "Kunwer Sachdev - The man of innovation"
+pubDate: 2025-07-04
+description: "Insights and updates about inverters and power solutions from the Inverter Man of India."
+author: "Kunwer Sachdev"
+image: {
+    url: "/assets/2au5gJ9hz8UROh6ohkOMnK5msVFIAjcofNypcKTwrBlN2GYMdd5sivaLVjZRGPxD.png",
+    alt: "Kunwer Sachdev - The man of innovation"
+}
+tags: []
+---
+
+<img src="/assets/2au5gJ9hz8UROh6ohkOMnK5msVFIAjcofNypcKTwrBlN2GYMdd5sivaLVjZRGPxD.png" class="featured-image" /><br/><p>Kunwer Sachdev is a man behind better power saving solutions in the country. He is known to bring in some great development changes in the power structure of the country. Kunwer Sachdeva started his career as a television cable dealer and distributor. Troubled by the constant woes of the people regarding the power failure and breakdowns, he decided to come up with a great solution for solving the problems of the people. He started Sukam in 1998 and the company was an instant success. Sukam was one brand that was making products keeping in mind the requirements and usage of the people. &nbsp;The products are of high quality and are sold after many quality checks.</p><figure id="figure-0zrx9cg4qsmcej67ad"><img id="0zrx9cg4qsmcej67ad" src="/assets/2au5gJ9hz8UROh6ohkOMnK5msVFIAjcofNypcKTwrBlN2GYMdd5sivaLVjZRGPxD.png" alt="" title="" class="object-cover bg-gray-100 rounded-2xl md:rounded-3xl lg:rounded-4xl" style="aspect-ratio: 3/2; object-position: 20% 25%;" data-corners="default" data-aspect="3:2" data-caption="Kunwer Sachdeva - The man of innovation" data-positionx="20%" data-positiony="25%" data-fullwidth="false" data-mce-src="/assets/2au5gJ9hz8UROh6ohkOMnK5msVFIAjcofNypcKTwrBlN2GYMdd5sivaLVjZRGPxD.png" data-mce-style="aspect-ratio: 3/2; object-position: 20% 25%;"><figcaption class="body-normal text-gray-500 mt-2">Kunwer Sachdeva - The man of innovation</figcaption></figure><p>Kunwer Sachdeva has a good rule of quality before quantity. He does not approve of a low quality product of Sukam being sold in the &nbsp;market. He focuses more on efficient and cost saving power solutions than selling highly priced products. Kunwer Sachdeva is responsible for bringing in the Pure Sine Wave Technology in the country. The technology is one of a kind and is a innovative way to capture and convert power. The Pure Sine Wave technology captures solar energy and converts it to power. It is not only an environment friendly technology but also is financially better. Kunwer Sachdeva is a true team leader and makes sure that the decisions taken by the company are in consideration with the opinion of the employees. He is a man to watch out for and will keep coming up with some interesting projects.<br></p><p><br></p><p><br></p><p><br>&nbsp;</p><p><br></p>

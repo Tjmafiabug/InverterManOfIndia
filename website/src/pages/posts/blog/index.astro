@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+---
+
+<BaseLayout 
+  title="Our Blog | Inverter Man Insights"
+  description="Stay updated with the latest insights on inverter technology, solar energy, and sustainable power solutions."
+>
+  <div id="__next">
+    <div id="main-body" class="flex flex-col h-full overflow-y-auto overflow-x-hidden smooth-scroll transition-all">
+      
+      <Header activePage="blog" />
+
+      <main>
+        {/* HERO */}
+        <section class="relative">
+          <div class="flex flex-none flex-shrink-0 relative break-word items-center fix-safari-flickering" style="min-height:40vh;z-index:100;margin-top:-90px;padding-top:120px;padding-bottom:120px;clip-path:url(#blog-hero-curve);">
+            <div class="absolute inset-0 z-0 pointer-events-none" style="background-color:rgb(19, 21, 22)"></div>
+            <div class="relative z-10 container mx-auto px-6 lg:px-12">
+              <div class="text-center transition-all ease-in-out duration-500 opacity-100 translate-y-0 text-white">
+                <h1 class="heading-xlarge font-bold mb-6">Our Blog</h1>
+                <p class="body-normal opacity-80 max-w-2xl mx-auto">Expert advice, reviews, and guides on inverters and clean energy. Stay powered with our reliable insights.</p>
+              </div>
+            </div>
+            <svg class="absolute bottom-0 left-0 w-full" height="0" width="0">
+              <defs>
+                <clipPath id="blog-hero-curve" clipPathUnits="objectBoundingBox">
+                  <path d="M0,0 H1 V0.9 C0.5,1,0.5,1,0,0.9 Z" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+        </section>
+
+        {/* POSTS GRID */}
+        <section class="relative py-24 lg:py-32" style="margin-top:-60px;z-index:90;background-color:rgb(19,21,22);">
+          <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
+              {posts.map((post) => (
+                <a class="group block" href={`/posts/blog/${post.id}`}>
+                  <div class="relative overflow-hidden mb-6 rounded-2xl md:rounded-3xl lg:rounded-4xl shadow-lg group-hover:shadow-2xl transition-all duration-300">
+                    <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                      <img
+                        src={post.data.image?.url || "/assets/default-blog.jpg"}
+                        alt={post.data.title}
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-3">
+                    <span class="text-sm font-bold uppercase tracking-widest" style="color:rgba(255,255,255,0.5)">{new Date(post.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                    <h3 class="heading-medium transition-colors" style="color:rgb(255,255,255)">{post.data.title}</h3>
+                    <p class="body-normal line-clamp-3" style="color:rgba(255,255,255,0.7)">{post.data.description}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>
+

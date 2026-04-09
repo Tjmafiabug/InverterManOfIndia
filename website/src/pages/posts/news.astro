@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const newsItems = (await getCollection('news')).sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+const bgColors = ["rgb(4,4,4)", "rgb(66,94,130)"];
+---
+
+<BaseLayout
+  title="News & Media | Inverter Man of India"
+  description="Stay updated with the latest news, media mentions, and strategic partnerships of Kunwer Sachdev."
+>
+  <div id="__next">
+    <div id="main-body" class="flex flex-col h-full overflow-y-auto overflow-x-hidden smooth-scroll transition-all">
+
+      <Header activePage="news" />
+
+      <main>
+        {newsItems.map((item, index) => {
+          const isFirst = index === 0;
+          const bgColor = bgColors[index % 2];
+          const curveId = `news-curve-${index}`;
+
+          return (
+            <section class="relative">
+              <div
+                class="flex flex-none flex-shrink-0 relative break-word items-center fix-safari-flickering"
+                style={`min-height:70vh;z-index:${100 - index};${isFirst ? 'margin-top:-90px;padding-top:170px;' : 'margin-top:-90px;padding-top:90px;'}padding-bottom:89px;clip-path:url(#${curveId});background-color:${bgColor};`}
+              >
+                <div class="relative z-10 container mx-auto px-6 lg:px-12 w-full">
+                  <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 text-white">
+
+                    <div class="flex-1 w-full lg:max-w-[50%]">
+                      <div class="relative w-full overflow-hidden rounded-2xl md:rounded-3xl shadow-2xl" style="aspect-ratio:16/9">
+                        <img
+                          alt={item.data.image?.alt || item.data.title}
+                          src={item.data.image?.url || "/assets/default-blog.jpg"}
+                          class="w-full h-full object-cover"
+                          onerror="this.src='/assets/default-blog.jpg'"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="flex-1 flex flex-col items-start text-left">
+                      <span class="text-[11px] font-bold uppercase tracking-[0.2em] mb-4" style="color:rgb(96,165,250)">Press &amp; Update</span>
+                      <h3 class="heading-large font-bold mb-6 leading-tight" style="color:rgb(255,255,255)">{item.data.title}</h3>
+                      <p class="body-normal leading-relaxed mb-10 max-w-2xl" style="color:rgba(255,255,255,0.9)">{item.data.summary}</p>
+                      <a
+                        class="button md"
+                        target="_blank"
+                        href={item.data.link}
+                        style="border-width:2px;border-style:solid;background-color:rgb(255,255,255);color:rgb(17,24,39);border-radius:8px;border-color:rgb(255,255,255);font-weight:600;padding:12px 32px;"
+                      >
+                        View Article
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+
+                <svg style="position:absolute;width:0;height:0">
+                  <defs>
+                    <clipPath id={curveId} clipPathUnits="objectBoundingBox">
+                      <path d="M0,0 H1 V0.93 C0.75,1,0.25,1,0,0.93 Z" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+            </section>
+          );
+        })}
+      </main>
+
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,61 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+  canonical?: string;
+  bodyClass?: string;
+}
+
+const {
+  title,
+  description = "Invertermanofindia in Gurugram, Haryana offers expert advice, reviews, and guides on inverters for homes and businesses. Stay powered with our reliable support.",
+  image = "https://cdn.durable.co/getty/25PZW8nDpD6pHCHd3MTR37prgUoE8b8My0VFqimBOH4MxQzwesus78LoJHjirp0w.jpeg",
+  canonical = "https://invertermanofindia.com/",
+  bodyClass = "overflow-x-hidden"
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" style="--head-fontFamily: 'IBM Plex Sans', sans-serif; --head-fontWeight: 600; --head-fontStyle: normal; --body-fontFamily: 'Playfair Display', serif; --body-fontWeight: 400; --body-fontStyle: normal; --header-logo-fontFamily: 'IBM Plex Sans', sans-serif; --footer-logo-fontFamily: 'IBM Plex Sans', sans-serif; --header-logo-fontWeight: 600; --footer-logo-fontWeight: 600;">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width"/>
+		<link rel="icon" href="/favicon.ico"/>
+		<title>{title}</title>
+		<meta http-equiv="Content-Language" content="en"/>
+    <meta name="title" property="og:title" content={title}/>
+    <meta name="twitter:title" content={title}/>
+    <meta property="og:type" content="website"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta property="og:url" content={canonical}/>
+    <meta name="description" property="og:description" content={description}/>
+    <meta name="twitter:description" content={description}/>
+    <meta name="image" property="og:image" content={image}/>
+    <meta name="twitter:image" content={image}/>
+    <meta name="google-site-verification" content="6k5HTueb9esPMpdY8siUkVf2Yc3D_oQUksJN0vNgzmU"/>
+    <meta name="robots" content="all"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&family=Playfair+Display:wght@400&display=swap" rel="stylesheet"/>
+    <link rel="preload" href="/css/main.css" as="style"/>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="preload" href="/css/extra.css" as="style"/>
+    <link rel="stylesheet" href="/css/extra.css"/>
+    <style is:global>
+      #nprogress { pointer-events: none; }
+      #nprogress .bar { background: #0074ff; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 3px; }
+      #nprogress .peg { display: block; position: absolute; right: 0px; width: 100px; height: 100%; box-shadow: 0 0 10px #0074ff, 0 0 5px #0074ff; opacity: 1; transform: rotate(3deg) translate(0px, -4px); }
+
+      .heading-xlarge { font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 800; line-height: 1; }
+      .heading-large  { font-size: clamp(2rem, 5vw, 4rem);   font-weight: 800; line-height: 1.1; }
+      .heading-medium { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 700; }
+      .body-normal    { font-size: 1.125rem; }
+      .button { display: inline-block; transition: all 0.2s ease-in-out; }
+      .button:hover { transform: translateY(-2px); opacity: 0.9; }
+    </style>
+	</head>
+	<body class={bodyClass} style="background-color:rgb(63,63,79)">
+		<slot />
+	</body>
+</html>

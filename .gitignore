@@ -1,0 +1,35 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build/Output
+dist/
+.astro/
+build/
+bin/
+obj/
+
+# Environment / Sensitive
+.env
+.env.*
+*.pfx
+*.cert
+*.key
+
+# IDE / OS
+.vscode/
+.claude/
+.DS_Store
+.idea/
+Thumbs.db
+
+# Project Specific
+website/node_modules/
+website/dist/
+website/.astro/
+migration/
+backup/
+*.pdf
