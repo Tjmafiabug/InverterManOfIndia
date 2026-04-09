@@ -39,9 +39,9 @@ const bgColors = ["rgb(4,4,4)", "rgb(66,94,130)"];
                       <div class="relative w-full overflow-hidden rounded-2xl md:rounded-3xl shadow-2xl" style="aspect-ratio:16/9">
                         <img
                           alt={item.data.image?.alt || item.data.title}
-                          src={item.data.image?.url || "/assets/default-blog.jpg"}
+                          src={item.data.image?.url || `${import.meta.env.BASE_URL}assets/default-blog.jpg`}
                           class="w-full h-full object-cover"
-                          onerror="this.src='/assets/default-blog.jpg'"
+                          onerror={`this.src='${import.meta.env.BASE_URL}assets/default-blog.jpg'`}
                         />
                       </div>
                     </div>

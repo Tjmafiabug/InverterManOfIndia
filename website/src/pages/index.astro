@@ -23,7 +23,7 @@ const posts = (await getCollection('blog')).sort(
               <div class="absolute inset-0 z-10" style="background-image:linear-gradient(rgb(36,42,46),rgb(19,21,22));opacity:0.5"></div>
               <div class="absolute inset-0 z-0 bg-white">
                 <span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0">
-                  <img alt="background" src="/assets/hero.jpg" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover;object-position:50% 15%"/>
+                  <img alt="background" src={`${import.meta.env.BASE_URL}assets/hero.jpg`} style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover;object-position:50% 15%"/>
                 </span>
               </div>
             </div>
@@ -100,7 +100,7 @@ const posts = (await getCollection('blog')).sort(
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {posts.map((post, i) => (
-                <a class="group" href={`/posts/blog/${post.id}`}>
+                <a class="group" href={`${import.meta.env.BASE_URL}posts/blog/${post.id}`}>
                   <div class="transition-all ease-in-out duration-500" style={`transition-delay:${(i+1)*100}ms`}>
                     <div class="relative overflow-hidden mb-6 rounded-2xl md:rounded-3xl lg:rounded-4xl">
                       <div class="relative flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 aspect-w-16 aspect-h-9" style={`background-image:url(${post.data.image?.url || ""});background-position:center;background-size:cover;color:#FFFFFF`}></div>
@@ -114,7 +114,7 @@ const posts = (await getCollection('blog')).sort(
               ))}
             </div>
             <div class="mt-6 lg:mt-10 text-center">
-              <a class="button md" target="_self" style="border-width:2px;border-style:solid;box-shadow:none;font-family:var(--body-fontFamily);font-weight:var(--body-fontWeight,500);font-style:var(--body-fontStyle);background-color:transparent;color:rgb(255,255,255);border-radius:8px;border-color:rgb(255,255,255)" href="/posts/blog">View more</a>
+              <a class="button md" target="_self" style="border-width:2px;border-style:solid;box-shadow:none;font-family:var(--body-fontFamily);font-weight:var(--body-fontWeight,500);font-style:var(--body-fontStyle);background-color:transparent;color:rgb(255,255,255);border-radius:8px;border-color:rgb(255,255,255)" href={`${import.meta.env.BASE_URL}posts/blog`}>View more</a>
             </div>
           </div>
         </div>

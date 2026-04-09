@@ -44,11 +44,11 @@ const posts = (await getCollection('blog')).sort(
           <div class="container mx-auto px-6 lg:px-12">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
               {posts.map((post) => (
-                <a class="group block" href={`/posts/blog/${post.id}`}>
+                <a class="group block" href={`${import.meta.env.BASE_URL}posts/blog/${post.id}`}>
                   <div class="relative overflow-hidden mb-6 rounded-2xl md:rounded-3xl lg:rounded-4xl shadow-lg group-hover:shadow-2xl transition-all duration-300">
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden">
                       <img
-                        src={post.data.image?.url || "/assets/default-blog.jpg"}
+                        src={post.data.image?.url || `${import.meta.env.BASE_URL}assets/default-blog.jpg`}
                         alt={post.data.title}
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
