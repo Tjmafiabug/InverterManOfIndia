@@ -103,7 +103,10 @@ const posts = (await getCollection('blog')).sort(
                 <a class="group" href={`${import.meta.env.BASE_URL}posts/blog/${post.id}`}>
                   <div class="transition-all ease-in-out duration-500" style={`transition-delay:${(i+1)*100}ms`}>
                     <div class="relative overflow-hidden mb-6 rounded-2xl md:rounded-3xl lg:rounded-4xl">
-                      <div class="relative flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 aspect-w-16 aspect-h-9" style={`background-image:url(${post.data.image?.url || ""});background-position:center;background-size:cover;color:#FFFFFF`}></div>
+                      <div class="relative flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 aspect-w-16 aspect-h-9" 
+                           style={`background-image:url(${post.data.image?.url 
+                             ? (post.data.image.url.startsWith('http') ? post.data.image.url : `${import.meta.env.BASE_URL}${post.data.image.url.startsWith('/') ? post.data.image.url.slice(1) : post.data.image.url}`) 
+                             : `${import.meta.env.BASE_URL}assets/default-blog.jpg`});background-position:center;background-size:cover;color:#FFFFFF`}></div>
                     </div>
                     <div class="text-center">
                       <h3 class="heading-medium mb-2 group-hover:underline" style="color:rgb(255,255,255)">{post.data.title}</h3>

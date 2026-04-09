@@ -48,7 +48,9 @@ const posts = (await getCollection('blog')).sort(
                   <div class="relative overflow-hidden mb-6 rounded-2xl md:rounded-3xl lg:rounded-4xl shadow-lg group-hover:shadow-2xl transition-all duration-300">
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden">
                       <img
-                        src={post.data.image?.url || `${import.meta.env.BASE_URL}assets/default-blog.jpg`}
+                        src={post.data.image?.url 
+                          ? (post.data.image.url.startsWith('http') ? post.data.image.url : `${import.meta.env.BASE_URL}${post.data.image.url.startsWith('/') ? post.data.image.url.slice(1) : post.data.image.url}`)
+                          : `${import.meta.env.BASE_URL}assets/default-blog.jpg`}
                         alt={post.data.title}
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
@@ -70,4 +72,3 @@ const posts = (await getCollection('blog')).sort(
     </div>
   </div>
 </BaseLayout>
-
