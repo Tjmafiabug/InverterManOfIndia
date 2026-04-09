@@ -8,7 +8,7 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
 ---
 
 <header id="website-header" class="transition-colors duration-300" style={`position:relative;z-index:2000;background-color:${bgColor};color:rgb(255,255,255)`}>
-  <div class="relative z-10 grid items-center lg:gap-6 xl:gap-10 mx-auto pt-6 pb-6 px-6 lg:px-12" style="grid-template-columns:auto auto auto">
+  <div id="header-container" class="relative z-10 grid items-center lg:gap-6 xl:gap-10 mx-auto pt-6 pb-6 px-6 lg:px-12" style="grid-template-columns:auto auto auto">
     <div class="col-span-2 lg:col-span-1">
       <a class="grid max-w-full" href={import.meta.env.BASE_URL}>
         <h2 class="header-logo max-w-full whitespace-nowrap overflow-hidden overflow-ellipsis" style="color:rgb(255,255,255);font-family:'IBM Plex Sans',sans-serif;font-weight:600;line-height:initial;font-size:clamp(1rem,2vw,1.5rem);margin:0">invertermanofindia</h2>
@@ -36,7 +36,7 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
     </div>
 
     <div class="ml-auto lg:hidden">
-      <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none" style="color:rgb(255,255,255)">
+      <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition-opacity duration-300" style="color:rgb(255,255,255)">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
@@ -53,7 +53,7 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
       <div class="flex items-center justify-between px-6 py-6 border-b" style="border-color:rgba(255,255,255,0.1)">
         <span class="font-bold text-lg">Navigation</span>
         <button id="close-drawer-button" class="p-2 text-zinc-400 hover:text-white">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
@@ -86,12 +86,16 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
     function openDrawer() {
       drawer.classList.remove('translate-x-full');
       backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      btn.style.opacity = '0'; // Hide the hamburger button
+      btn.style.pointerEvents = 'none';
       document.body.style.overflow = 'hidden';
     }
 
     function closeDrawer() {
       drawer.classList.add('translate-x-full');
       backdrop.classList.add('opacity-0', 'pointer-events-none');
+      btn.style.opacity = '1'; // Show the hamburger button
+      btn.style.pointerEvents = 'auto';
       document.body.style.overflow = '';
     }
 
@@ -113,7 +117,6 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
 <style>
   #mobile-drawer {
     box-shadow: -10px 0 30px rgba(0,0,0,0.8);
-    /* Force opacity in case of inheritance issues */
     opacity: 1 !important;
   }
 </style>
