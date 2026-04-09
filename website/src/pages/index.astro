@@ -15,9 +15,12 @@ const posts = (await getCollection('blog')).sort(
 
       <Header activePage="home" bgColor="rgb(13,15,16)" />
 
+      <!-- Spacer for Fixed Header -->
+      <div class="h-[80px] lg:h-[90px]"></div>
+
       <!-- HERO SECTION: dark gradient overlay, background image, curve bottom -->
       <section class="relative">
-        <div id="hero-section" data-text-color="#FFFFFF" class="flex relative break-word items-center fix-safari-flickering" style="margin-top:-90px;padding-top:90px;z-index:39;min-height:calc(0px);padding-bottom:89px;clip-path:url('#hero-curveUp')" data-combine-with-header="true">
+        <div id="hero-section" data-text-color="#FFFFFF" class="flex relative break-word items-center fix-safari-flickering" style="z-index:39;min-height:calc(0px);padding-top:80px;padding-bottom:120px;clip-path:url('#hero-curveUp')">
           <div class="w-full flex break-word transition-all duration-300 items-center">
             <div class="absolute inset-0 z-10 pointer-events-none">
               <div class="absolute inset-0 z-10" style="background-image:linear-gradient(rgb(36,42,46),rgb(19,21,22));opacity:0.5"></div>
@@ -27,7 +30,7 @@ const posts = (await getCollection('blog')).sort(
                 </span>
               </div>
             </div>
-            <div class="relative z-10 container mx-auto px-5 md:px-6 transition-all duration-300 pt-12 lg:pt-40 pb-12 lg:pb-40">
+            <div class="relative z-10 container mx-auto px-5 md:px-6 transition-all duration-300 pt-12 lg:pt-20 pb-12 lg:pb-20">
               <div class="transition-all ease-in-out duration-500 opacity-100 translate-y-0 relative z-10 w-full h-full">
                 <div class="flex w-full gap-10 lg:gap-20 transition-all duration-300 flex-col lg:flex-row justify-center">
                   <div class="flex-1 flex flex-col gap-4 w-full max-w-3xl items-center text-center mx-auto">
@@ -48,7 +51,7 @@ const posts = (await getCollection('blog')).sort(
 
       <!-- ABOUT SECTION: dark bg #3f3f4f, white text, curve bottom -->
       <section class="relative">
-        <div id="about-section" class="flex flex-none flex-shrink-0 relative break-word items-center fix-safari-flickering" style="min-height:calc(0px);z-index:38;margin-top:-200px;padding-top:200px;padding-bottom:89px;clip-path:url('#about-curveUp')">
+        <div id="about-section" class="flex flex-none flex-shrink-0 relative break-word items-center fix-safari-flickering" style="min-height:calc(0px);z-index:38;margin-top:-100px;padding-top:150px;padding-bottom:89px;clip-path:url('#about-curveUp')">
           <div class="absolute inset-0 z-10 pointer-events-none">
             <div class="absolute inset-0 z-10" style="background-color:rgb(63,63,79)"></div>
           </div>
