@@ -48,10 +48,10 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
   <div id="drawer-backdrop" class="fixed inset-0 z-[2500] bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
   <!-- Mobile Drawer Panel (Right Side) -->
-  <div id="mobile-drawer" class="fixed top-0 right-0 h-full w-[80%] max-w-[320px] z-[3000] bg-zinc-900 shadow-2xl translate-x-full transition-transform duration-300 ease-in-out">
-    <div class="flex flex-col h-full bg-zinc-900 text-white">
-      <div class="flex items-center justify-between px-6 py-6 border-b border-zinc-800">
-        <span class="font-bold text-lg">Menu</span>
+  <div id="mobile-drawer" class="fixed top-0 right-0 h-full w-[80%] max-w-[320px] z-[3000] translate-x-full transition-transform duration-300 ease-in-out shadow-2xl" style="background-color:rgb(19, 21, 22)">
+    <div class="flex flex-col h-full text-white" style="background-color:rgb(19, 21, 22)">
+      <div class="flex items-center justify-between px-6 py-6 border-b" style="border-color:rgba(255,255,255,0.1)">
+        <span class="font-bold text-lg">Navigation</span>
         <button id="close-drawer-button" class="p-2 text-zinc-400 hover:text-white">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -60,9 +60,9 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
       </div>
       
       <nav class="flex flex-col py-4">
-        <a href={import.meta.env.BASE_URL} class={`px-8 py-5 text-xl font-medium border-b border-zinc-800/50 ${activePage === 'home' ? 'text-blue-500 bg-zinc-800/20' : 'text-zinc-200'}`}>Home</a>
-        <a href={`${import.meta.env.BASE_URL}posts/news`} class={`px-8 py-5 text-xl font-medium border-b border-zinc-800/50 ${activePage === 'news' ? 'text-blue-500 bg-zinc-800/20' : 'text-zinc-200'}`}>News</a>
-        <a href={`${import.meta.env.BASE_URL}posts/blog`} class={`px-8 py-5 text-xl font-medium border-b border-zinc-800/50 ${activePage === 'blog' ? 'text-blue-500 bg-zinc-800/20' : 'text-zinc-200'}`}>Blogs</a>
+        <a href={import.meta.env.BASE_URL} class={`px-8 py-5 text-xl font-medium border-b ${activePage === 'home' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">Home</a>
+        <a href={`${import.meta.env.BASE_URL}posts/news`} class={`px-8 py-5 text-xl font-medium border-b ${activePage === 'news' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">News</a>
+        <a href={`${import.meta.env.BASE_URL}posts/blog`} class={`px-8 py-5 text-xl font-medium border-b ${activePage === 'blog' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">Blogs</a>
       </nav>
 
       <div class="mt-auto px-6 py-8">
@@ -105,13 +105,15 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
     });
   }
 
+  // Ensure it works on load and on layout swaps
   initDrawer();
   document.addEventListener('astro:after-swap', initDrawer);
 </script>
 
 <style>
-  /* Ensure Tailwind classes work if not pre-parsed */
   #mobile-drawer {
-    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+    /* Force opacity in case of inheritance issues */
+    opacity: 1 !important;
   }
 </style>
