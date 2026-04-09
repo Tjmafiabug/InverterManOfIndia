@@ -48,24 +48,23 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
   <div id="drawer-backdrop" class="fixed inset-0 z-[2500] bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
   <!-- Mobile Drawer Panel (Right Side) -->
-  <div id="mobile-drawer" class="fixed top-0 right-0 h-full w-[80%] max-w-[320px] z-[3000] translate-x-full transition-transform duration-300 ease-in-out shadow-2xl" style="background-color:rgb(19, 21, 22)">
-    <div class="flex flex-col h-full text-white" style="background-color:rgb(19, 21, 22)">
-      <div class="flex items-center justify-between px-6 py-6 border-b" style="border-color:rgba(255,255,255,0.1)">
-        <span class="font-bold text-lg">Navigation</span>
-        <button id="close-drawer-button" class="p-2 text-zinc-400 hover:text-white">
-          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+  <div id="mobile-drawer" class="fixed top-0 right-0 h-full w-[80%] max-w-[320px] z-[3000] translate-x-full transition-transform duration-300 ease-in-out shadow-2xl overflow-y-auto" style="background-color:rgb(19, 21, 22)">
+    <div class="flex flex-col min-h-full text-white" style="background-color:rgb(19, 21, 22)">
+      <div class="flex items-center justify-end px-6 py-6">
+        <button id="close-drawer-button" class="p-4 text-zinc-400 hover:text-white bg-zinc-800/50 rounded-full" aria-label="Close menu">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
       
-      <nav class="flex flex-col py-4">
-        <a href={import.meta.env.BASE_URL} class={`px-8 py-5 text-xl font-medium border-b ${activePage === 'home' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">Home</a>
-        <a href={`${import.meta.env.BASE_URL}posts/news`} class={`px-8 py-5 text-xl font-medium border-b ${activePage === 'news' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">News</a>
-        <a href={`${import.meta.env.BASE_URL}posts/blog`} class={`px-8 py-5 text-xl font-medium border-b ${activePage === 'blog' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">Blogs</a>
+      <nav class="flex flex-col py-2">
+        <a href={import.meta.env.BASE_URL} class={`px-8 py-5 text-xl font-bold border-b ${activePage === 'home' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">Home</a>
+        <a href={`${import.meta.env.BASE_URL}posts/news`} class={`px-8 py-5 text-xl font-bold border-b ${activePage === 'news' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">News</a>
+        <a href={`${import.meta.env.BASE_URL}posts/blog`} class={`px-8 py-5 text-xl font-bold border-b ${activePage === 'blog' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">Blogs</a>
       </nav>
 
-      <div class="mt-auto px-6 py-8">
+      <div class="mt-8 px-6 pb-12">
         <a href="mailto:invertermanofindia@gmail.com" class="block w-full py-4 bg-blue-600 text-white font-bold rounded-xl text-center shadow-lg shadow-blue-900/40">
           Contact Us
         </a>
@@ -83,29 +82,34 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
 
     if (!btn || !drawer || !backdrop || !closeBtn) return;
 
-    function openDrawer() {
+    function openDrawer(e) {
+      if (e) e.preventDefault();
       drawer.classList.remove('translate-x-full');
       backdrop.classList.remove('opacity-0', 'pointer-events-none');
-      btn.style.opacity = '0'; // Hide the hamburger button
+      btn.style.opacity = '0';
       btn.style.pointerEvents = 'none';
+      // We don't lock body overflow if user wants to be able to "scroll" 
+      // but usually we MUST lock it for a good drawer experience.
+      // I'll keep it but ensure the DRAWER is scrollable.
       document.body.style.overflow = 'hidden';
     }
 
-    function closeDrawer() {
+    function closeDrawer(e) {
+      if (e) e.preventDefault();
       drawer.classList.add('translate-x-full');
       backdrop.classList.add('opacity-0', 'pointer-events-none');
-      btn.style.opacity = '1'; // Show the hamburger button
+      btn.style.opacity = '1';
       btn.style.pointerEvents = 'auto';
       document.body.style.overflow = '';
     }
 
-    btn.addEventListener('click', openDrawer);
-    closeBtn.addEventListener('click', closeDrawer);
-    backdrop.addEventListener('click', closeDrawer);
+    btn.onclick = openDrawer;
+    closeBtn.onclick = closeDrawer;
+    backdrop.onclick = closeDrawer;
 
     // Close on link click
     drawer.querySelectorAll('nav a').forEach(a => {
-      a.addEventListener('click', closeDrawer);
+      a.onclick = closeDrawer;
     });
   }
 
@@ -118,5 +122,10 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
   #mobile-drawer {
     box-shadow: -10px 0 30px rgba(0,0,0,0.8);
     opacity: 1 !important;
+    /* Custom scrollbar for better look */
+    scrollbar-width: none;
+  }
+  #mobile-drawer::-webkit-scrollbar {
+    display: none;
   }
 </style>
