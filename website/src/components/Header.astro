@@ -8,28 +8,28 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
 ---
 
 <header id="website-header" class="fixed top-0 left-0 w-full transition-all duration-300 z-[2000]" style={`background-color:${bgColor};color:rgb(255,255,255)`}>
-  <div id="header-container" class="relative z-10 grid items-center lg:gap-6 xl:gap-10 mx-auto pt-6 pb-6 px-6 lg:px-12" style="grid-template-columns:auto auto auto">
+  <div id="header-container" class="relative z-10 grid items-center lg:gap-6 xl:gap-10 mx-auto pt-4 pb-4 px-6 lg:px-12" style="grid-template-columns:auto auto auto">
     <div class="col-span-2 lg:col-span-1">
       <a class="grid max-w-full" href={import.meta.env.BASE_URL}>
-        <h2 class="header-logo max-w-full whitespace-nowrap overflow-hidden overflow-ellipsis" style="color:rgb(255,255,255);font-family:'IBM Plex Sans',sans-serif;font-weight:600;line-height:initial;font-size:clamp(1rem,2vw,1.5rem);margin:0">invertermanofindia</h2>
+        <h2 class="header-logo max-w-full whitespace-nowrap overflow-hidden overflow-ellipsis" style="color:rgb(255,255,255);font-family:'IBM Plex Sans',sans-serif;font-weight:600;line-height:initial;font-size:clamp(1rem,2vw,1.3rem);margin:0">invertermanofindia</h2>
       </a>
     </div>
     
     <div class="hidden lg:flex items-center justify-end gap-10 lg:col-span-2">
       <ul class="hidden items-center flex-wrap lg:flex justify-end gap-x-6" style="color:rgb(255,255,255)">
         <li class={`border-b-2 transition-colors ${activePage === 'home' ? 'border-white' : 'border-transparent hover:border-white'}`}>
-          <a class="block whitespace-nowrap py-1.5 text-base" href={import.meta.env.BASE_URL}>Home</a>
+          <a class="block whitespace-nowrap py-1 text-sm" href={import.meta.env.BASE_URL}>Home</a>
         </li>
         <li class={`border-b-2 transition-colors ${activePage === 'news' ? 'border-white' : 'border-transparent hover:border-white'}`}>
-          <a class="block whitespace-nowrap py-1.5 text-base" href={`${import.meta.env.BASE_URL}posts/news`}>News</a>
+          <a class="block whitespace-nowrap py-1 text-sm" href={`${import.meta.env.BASE_URL}posts/news`}>News</a>
         </li>
         <li class={`border-b-2 transition-colors ${activePage === 'blog' ? 'border-white' : 'border-transparent hover:border-white'}`}>
-          <a class="block whitespace-nowrap py-1.5 text-base" href={`${import.meta.env.BASE_URL}posts/blog`}>Blogs</a>
+          <a class="block whitespace-nowrap py-1 text-sm" href={`${import.meta.env.BASE_URL}posts/blog`}>Blogs</a>
         </li>
       </ul>
       <div class="hidden lg:flex items-center flex-shrink-0 gap-4">
         <a href="mailto:invertermanofindia@gmail.com"
-           style="border-width:2px;border-style:solid;background-color:rgb(0,116,255);color:rgb(255,255,255);border-radius:8px;border-color:rgb(0,116,255);font-weight:600;padding:10px 24px;font-size:1rem;display:inline-block;transition:all 0.2s ease-in-out;font-family:'IBM Plex Sans',sans-serif;">
+           style="border-width:2px;border-style:solid;background-color:rgb(0,116,255);color:rgb(255,255,255);border-radius:6px;border-color:rgb(0,116,255);font-weight:600;padding:6px 18px;font-size:0.9rem;display:inline-block;transition:all 0.2s ease-in-out;font-family:'IBM Plex Sans',sans-serif;">
           Contact us
         </a>
       </div>
@@ -37,7 +37,7 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
 
     <div class="ml-auto lg:hidden">
       <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition-opacity duration-300" style="color:rgb(255,255,255)">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
       </button>
@@ -48,24 +48,24 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
   <div id="drawer-backdrop" class="fixed inset-0 z-[2500] bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
   <!-- Mobile Drawer Panel (Right Side) -->
-  <div id="mobile-drawer" class="fixed top-0 right-0 h-full w-[80%] max-w-[320px] z-[3000] translate-x-full transition-transform duration-300 ease-in-out shadow-2xl overflow-y-auto" style="background-color:rgb(19, 21, 22)">
+  <div id="mobile-drawer" class="fixed top-0 right-0 h-full w-[80%] max-w-[300px] z-[3000] translate-x-full transition-transform duration-300 ease-in-out shadow-2xl overflow-y-auto" style="background-color:rgb(19, 21, 22)">
     <div class="flex flex-col min-h-full text-white" style="background-color:rgb(19, 21, 22)">
-      <div class="flex items-center justify-end px-6 py-6">
-        <button id="close-drawer-button" class="p-4 text-zinc-400 hover:text-white bg-zinc-800/50 rounded-full" aria-label="Close menu" style="cursor: pointer; -webkit-tap-highlight-color: transparent;">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="flex items-center justify-end px-6 py-4">
+        <button id="close-drawer-button" class="p-3 text-zinc-400 hover:text-white bg-zinc-800/50 rounded-full" aria-label="Close menu" style="cursor: pointer; -webkit-tap-highlight-color: transparent;">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
       
-      <nav class="flex flex-col py-2">
-        <a href={import.meta.env.BASE_URL} class={`px-8 py-5 text-xl font-bold border-b ${activePage === 'home' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">Home</a>
-        <a href={`${import.meta.env.BASE_URL}posts/news`} class={`px-8 py-5 text-xl font-bold border-b ${activePage === 'news' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">News</a>
-        <a href={`${import.meta.env.BASE_URL}posts/blog`} class={`px-8 py-5 text-xl font-bold border-b ${activePage === 'blog' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">Blogs</a>
+      <nav class="flex flex-col py-1">
+        <a href={import.meta.env.BASE_URL} class={`px-8 py-4 text-lg font-bold border-b ${activePage === 'home' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">Home</a>
+        <a href={`${import.meta.env.BASE_URL}posts/news`} class={`px-8 py-4 text-lg font-bold border-b ${activePage === 'news' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">News</a>
+        <a href={`${import.meta.env.BASE_URL}posts/blog`} class={`px-8 py-4 text-lg font-bold border-b ${activePage === 'blog' ? 'text-blue-500 bg-white/5' : 'text-zinc-200'}`} style="border-color:rgba(255,255,255,0.05)">Blogs</a>
       </nav>
 
-      <div class="mt-8 px-6 pb-12">
-        <a href="mailto:invertermanofindia@gmail.com" class="block w-full py-4 bg-blue-600 text-white font-bold rounded-xl text-center shadow-lg shadow-blue-900/40">
+      <div class="mt-6 px-6 pb-12">
+        <a href="mailto:invertermanofindia@gmail.com" class="block w-full py-3 bg-blue-600 text-white font-bold rounded-lg text-center shadow-lg shadow-blue-900/40">
           Contact Us
         </a>
       </div>
@@ -78,8 +78,8 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
     const header = document.getElementById('website-header');
     
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        header.style.backgroundColor = 'rgba(19, 21, 22, 0.95)';
+      if (window.scrollY > 30) {
+        header.style.backgroundColor = 'rgba(19, 21, 22, 0.98)';
         header.style.backdropFilter = 'blur(10px)';
         header.style.paddingTop = '0px';
         header.style.paddingBottom = '0px';
@@ -97,7 +97,7 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
     if (header) {
       header.setAttribute('data-initial-bg', header.style.backgroundColor);
       window.addEventListener('scroll', handleScroll);
-      handleScroll(); // Initial check
+      handleScroll();
     }
   }
 
@@ -132,11 +132,8 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
     backdrop.onclick = closeDrawer;
   }
 
-  // Run on first load
   initHeaderEffects();
   initDrawer();
-
-  // Run on View Transitions
   document.addEventListener('astro:after-swap', () => {
     initHeaderEffects();
     initDrawer();
