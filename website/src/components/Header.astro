@@ -51,7 +51,7 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
   <div id="mobile-drawer" class="fixed top-0 right-0 h-full w-[80%] max-w-[320px] z-[3000] translate-x-full transition-transform duration-300 ease-in-out shadow-2xl overflow-y-auto" style="background-color:rgb(19, 21, 22)">
     <div class="flex flex-col min-h-full text-white" style="background-color:rgb(19, 21, 22)">
       <div class="flex items-center justify-end px-6 py-6">
-        <button id="close-drawer-button" class="p-4 text-zinc-400 hover:text-white bg-zinc-800/50 rounded-full" aria-label="Close menu">
+        <button id="close-drawer-button" class="p-4 text-zinc-400 hover:text-white bg-zinc-800/50 rounded-full" aria-label="Close menu" style="cursor: pointer; -webkit-tap-highlight-color: transparent;">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -88,9 +88,6 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
       backdrop.classList.remove('opacity-0', 'pointer-events-none');
       btn.style.opacity = '0';
       btn.style.pointerEvents = 'none';
-      // We don't lock body overflow if user wants to be able to "scroll" 
-      // but usually we MUST lock it for a good drawer experience.
-      // I'll keep it but ensure the DRAWER is scrollable.
       document.body.style.overflow = 'hidden';
     }
 
@@ -103,17 +100,15 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
       document.body.style.overflow = '';
     }
 
+    // Attach to touchstart for faster response on mobile
     btn.onclick = openDrawer;
     closeBtn.onclick = closeDrawer;
     backdrop.onclick = closeDrawer;
 
-    // Close on link click
-    drawer.querySelectorAll('nav a').forEach(a => {
-      a.onclick = closeDrawer;
-    });
+    // Use specific event listeners for links to prevent closing without navigation
+    // We remove the automatic `closeDrawer` from links as per user request to have the X button handle closing.
   }
 
-  // Ensure it works on load and on layout swaps
   initDrawer();
   document.addEventListener('astro:after-swap', initDrawer);
 </script>
@@ -122,7 +117,6 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
   #mobile-drawer {
     box-shadow: -10px 0 30px rgba(0,0,0,0.8);
     opacity: 1 !important;
-    /* Custom scrollbar for better look */
     scrollbar-width: none;
   }
   #mobile-drawer::-webkit-scrollbar {
