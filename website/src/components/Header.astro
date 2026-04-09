@@ -34,11 +34,66 @@ const { activePage = 'home', bgColor = 'transparent' } = Astro.props;
       </div>
     </div>
     <div class="ml-auto lg:hidden">
-      <button class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition-colors duration-300" style="color:rgb(255,255,255)">
+      <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition-colors duration-300" style="color:rgb(255,255,255)">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="block h-5 w-5">
           <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"></path>
         </svg>
       </button>
     </div>
   </div>
+
+  {/* Mobile Menu Overlay */}
+  <div id="mobile-menu" class="fixed inset-0 z-[3000] hidden bg-black/95 backdrop-blur-md">
+    <div class="flex flex-col h-full px-6 py-8">
+      <div class="flex items-center justify-between mb-12">
+        <h2 class="header-logo" style="color:rgb(255,255,255);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:1.5rem;">invertermanofindia</h2>
+        <button id="close-menu-button" class="p-2 text-white">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <nav class="flex flex-col gap-8">
+        <a href={import.meta.env.BASE_URL} class={`text-3xl font-semibold ${activePage === 'home' ? 'text-blue-500' : 'text-white'}`}>Home</a>
+        <a href={`${import.meta.env.BASE_URL}posts/news`} class={`text-3xl font-semibold ${activePage === 'news' ? 'text-blue-500' : 'text-white'}`}>News</a>
+        <a href={`${import.meta.env.BASE_URL}posts/blog`} class={`text-3xl font-semibold ${activePage === 'blog' ? 'text-blue-500' : 'text-white'}`}>Blogs</a>
+        <a href="mailto:invertermanofindia@gmail.com" class="mt-4 text-xl font-bold py-4 px-8 bg-blue-600 text-white rounded-xl text-center">Contact Us</a>
+      </nav>
+    </div>
+  </div>
 </header>
+
+<script>
+  const setupMenu = () => {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMenuButton = document.getElementById('close-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu && closeMenuButton) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      });
+
+      closeMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+
+      // Close menu when a link is clicked
+      const links = mobileMenu.querySelectorAll('nav a');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  };
+
+  // Run on first load
+  setupMenu();
+
+  // Run on View Transitions (if enabled in Astro)
+  document.addEventListener('astro:after-swap', setupMenu);
+</script>
