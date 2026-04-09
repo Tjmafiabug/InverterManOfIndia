@@ -20,7 +20,7 @@ const posts = (await getCollection('blog')).sort(
 
       <!-- HERO SECTION: dark gradient overlay, background image, curve bottom -->
       <section class="relative">
-        <div id="hero-section" data-text-color="#FFFFFF" class="flex relative break-word items-center fix-safari-flickering" style="z-index:39;min-height:calc(0px);padding-top:80px;padding-bottom:120px;clip-path:url('#hero-curveUp')">
+        <div id="hero-section" data-text-color="#FFFFFF" class="flex flex-none flex-shrink-0 relative break-word items-center fix-safari-flickering" style="z-index:39;min-height:calc(0px);padding-top:80px;padding-bottom:120px;clip-path:url('#hero-curveUp')">
           <div class="w-full flex break-word transition-all duration-300 items-center">
             <div class="absolute inset-0 z-10 pointer-events-none">
               <div class="absolute inset-0 z-10" style="background-image:linear-gradient(rgb(36,42,46),rgb(19,21,22));opacity:0.5"></div>
@@ -40,18 +40,19 @@ const posts = (await getCollection('blog')).sort(
               </div>
             </div>
           </div>
-          <svg class="absolute bottom-0 left-0" width="1470" height="659" viewBox="0 0 1470 659">
-            <clipPath id="hero-curveUp">
-              <rect width="1470" height="570" fill="transparent"></rect>
-              <path d="M0 0 C735 89 735 89 1470 0 L1470 0 L0 0" transform="translate(0, 570)" fill="transparent"></path>
-            </clipPath>
+          <svg style="position:fixed;width:0;height:0">
+            <defs>
+              <clipPath id="hero-curveUp" clipPathUnits="objectBoundingBox">
+                <path d="M0,0 H1 V0.9 C0.5,1,0.5,1,0,0.9 Z" />
+              </clipPath>
+            </defs>
           </svg>
         </div>
       </section>
 
       <!-- ABOUT SECTION: dark bg #3f3f4f, white text, curve bottom -->
       <section class="relative">
-        <div id="about-section" class="flex flex-none flex-shrink-0 relative break-word items-center fix-safari-flickering" style="min-height:calc(0px);z-index:38;margin-top:-100px;padding-top:150px;padding-bottom:200px;clip-path:url('#about-curveUp')">
+        <div id="about-section" class="flex flex-none flex-shrink-0 relative break-word items-center fix-safari-flickering" style="min-height:calc(0px);z-index:38;margin-top:-100px;padding-top:150px;padding-bottom:250px;clip-path:url('#about-curveUp')">
           <div class="absolute inset-0 z-10 pointer-events-none">
             <div class="absolute inset-0 z-10" style="background-color:rgb(63,63,79)"></div>
           </div>
@@ -82,11 +83,12 @@ const posts = (await getCollection('blog')).sort(
               </div>
             </div>
           </div>
-          <svg class="absolute bottom-0 left-0" width="1470" height="2242" viewBox="0 0 1470 2242">
-            <clipPath id="about-curveUp">
-              <rect width="1470" height="2153" fill="transparent"></rect>
-              <path d="M0 0 C735 89 735 89 1470 0 L1470 0 L0 0" transform="translate(0, 2153)" fill="transparent"></path>
-            </clipPath>
+          <svg style="position:fixed;width:0;height:0">
+            <defs>
+              <clipPath id="about-curveUp" clipPathUnits="objectBoundingBox">
+                <path d="M0,0 H1 V0.95 C0.7,1,0.3,1,0,0.95 Z" />
+              </clipPath>
+            </defs>
           </svg>
         </div>
       </section>
