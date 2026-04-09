@@ -4,6 +4,6 @@ summary: "Kunwer Sachdev, founder of Su-Kam, has cemented his place in history b
 pubDate: 2023-12-10
 link: "https://zeenews.india.com/companies/from-selling-pens-to-building-a-million-dollar-empire-su-kam-su-vastika-the-inverter-man-of-india-kunwer-sachdev-who-turned-wounds-into-wisdom-with-help-of-his-better-half-khushboo-sachdev-2633879.html"
 image:
-  url: "/assets/2dNzQWsLrie41NRAU0KU7IRRFvf0o3qN8bW0VSqJF9xQGqObRihs8RaoDIWVfFUW.jpg"
+  url: "/InverterManOfIndia/assets/2dNzQWsLrie41NRAU0KU7IRRFvf0o3qN8bW0VSqJF9xQGqObRihs8RaoDIWVfFUW.jpg"
   alt: "Kunwer Sachdev Million Dollar Empire"
 ---

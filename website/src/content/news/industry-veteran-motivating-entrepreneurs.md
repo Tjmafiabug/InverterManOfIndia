@@ -4,6 +4,6 @@ summary: "Kunwer Sachdev has become a prominent voice for entrepreneurs on Linke
 pubDate: 2023-03-10
 link: "https://www.theglobeandmail.com/investing/markets/markets-news/GetNews/28729056/industry-veteran-kunwer-sachdev-is-motivating-entrepreneurs-with-thought-leadership/"
 image:
-  url: "/assets/1boXArMI8dLzuV6rXgqwU04iy0guj6Mm132OBQXH9xqILOfScogXf7F6rDIpoWT0.jpg"
+  url: "/InverterManOfIndia/assets/1boXArMI8dLzuV6rXgqwU04iy0guj6Mm132OBQXH9xqILOfScogXf7F6rDIpoWT0.jpg"
   alt: "Kunwer Sachdev Motivating Entrepreneurs"
 ---

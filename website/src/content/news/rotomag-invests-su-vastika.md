@@ -4,6 +4,6 @@ summary: "Su-vastika Systems Pvt. Ltd. has received a strategic investment from 
 pubDate: 2024-02-20
 link: "https://m.dailyhunt.in/news/india/english/r+news+india-epaper-dhfacc36dfce9c4bb68db0e89d033c921b/rotomag+invests+in+suvastika+to+power+indias+clean+energy+transition-newsid-dhfacc36dfce9c4bb68db0e89d033c921b_2a9d8bb0620211f0ad2f1f5432a22622?sm=Y"
 image:
-  url: "/assets/19vNGkVLUu9QOWuwaj4kYowdCaTETge80wqb1DkvPMeQx7DLd3XBZMv62WkDjIJp.png"
+  url: "/InverterManOfIndia/assets/19vNGkVLUu9QOWuwaj4kYowdCaTETge80wqb1DkvPMeQx7DLd3XBZMv62WkDjIJp.png"
   alt: "Rotomag invests in Su-vastika"
 ---

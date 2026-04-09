@@ -16,7 +16,9 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 
 const imageUrl = post.data.image?.url 
-  ? (post.data.image.url.startsWith('http') ? post.data.image.url : `${import.meta.env.BASE_URL}${post.data.image.url.startsWith('/') ? post.data.image.url.slice(1) : post.data.image.url}`)
+  ? (post.data.image.url.startsWith('http') || post.data.image.url.startsWith(import.meta.env.BASE_URL)
+      ? post.data.image.url 
+      : `${import.meta.env.BASE_URL}${post.data.image.url.startsWith('/') ? post.data.image.url.slice(1) : post.data.image.url}`)
   : null;
 ---
 

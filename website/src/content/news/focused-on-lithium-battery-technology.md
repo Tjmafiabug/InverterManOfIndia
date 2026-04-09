@@ -4,6 +4,6 @@ summary: "Su-vastika is creating a better technology for solar storage and lithi
 pubDate: 2023-06-01
 link: "https://tribuneonlineng.com/creating-better-technology-for-solar-storage-lithium-battery-is-my-focus-kunwer-sachdev-founder-su-kam/"
 image:
-  url: "/assets/1bQXcdNJqrEVfXXRbF5KhBpKxtiAxYQXUZ256FDIU2gEXjgd1E7AzoKKntCKig3Q.jpg"
+  url: "/InverterManOfIndia/assets/1bQXcdNJqrEVfXXRbF5KhBpKxtiAxYQXUZ256FDIU2gEXjgd1E7AzoKKntCKig3Q.jpg"
   alt: "Lithium Battery Technology"
 ---
