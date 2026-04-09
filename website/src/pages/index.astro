@@ -51,7 +51,7 @@ const posts = (await getCollection('blog')).sort(
 
       <!-- ABOUT SECTION: dark bg #3f3f4f, white text, curve bottom -->
       <section class="relative">
-        <div id="about-section" class="flex flex-none flex-shrink-0 relative break-word items-center fix-safari-flickering" style="min-height:calc(0px);z-index:38;margin-top:-100px;padding-top:150px;padding-bottom:89px;clip-path:url('#about-curveUp')">
+        <div id="about-section" class="flex flex-none flex-shrink-0 relative break-word items-center fix-safari-flickering" style="min-height:calc(0px);z-index:38;margin-top:-100px;padding-top:150px;padding-bottom:200px;clip-path:url('#about-curveUp')">
           <div class="absolute inset-0 z-10 pointer-events-none">
             <div class="absolute inset-0 z-10" style="background-color:rgb(63,63,79)"></div>
           </div>
@@ -76,7 +76,7 @@ const posts = (await getCollection('blog')).sort(
               <div class="flex-1 flex w-full h-full items-center lg:max-w-1/2 mx-auto text-center">
                 <div class="flex-shrink-0 relative w-full h-full mx-auto aspect-w-16 aspect-h-9">
                   <span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0">
-                    <img alt="Kunwer Sachdev" src="https://cdn.durable.co/blocks/293Wfqljka6ZgVIyCJvFvxWuqn0G6eXUuvTaBEZdctfMgt60RKHXli0aCZlKb24b.jpg" decoding="async" class="rounded-2xl md:rounded-3xl lg:rounded-4xl" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover;object-position:center center"/>
+                    <img alt="Kunwer Sachdev" src={`${import.meta.env.BASE_URL}assets/kunwer-portrait.png`} decoding="async" class="rounded-2xl md:rounded-3xl lg:rounded-4xl" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover;object-position:center center"/>
                   </span>
                 </div>
               </div>
@@ -93,11 +93,11 @@ const posts = (await getCollection('blog')).sort(
 
       <!-- RECENT POSTS SECTION: near-black bg -->
       <section class="relative">
-        <div id="recent-posts-section" class="flex flex-none flex-shrink-0 relative break-word items-center" style="min-height:calc(0px);z-index:37;margin-top:-90px;padding-top:90px;padding-bottom:0px">
+        <div id="recent-posts-section" class="flex flex-none flex-shrink-0 relative break-word items-center" style="min-height:calc(0px);z-index:37;margin-top:-150px;padding-top:180px;padding-bottom:0px">
           <div class="absolute inset-0 z-10 pointer-events-none">
             <div class="absolute inset-0 z-10" style="background-color:rgb(19,21,22)"></div>
           </div>
-          <div class="relative z-10 container mx-auto pt-16 lg:pt-32 pb-16 lg:pb-32">
+          <div class="relative z-10 container mx-auto pt-16 lg:pt-24 pb-16 lg:pb-32">
             <div class="flex flex-col gap-4 mb-10 items-center text-center mx-auto">
               <h2 class="break-word heading-large" style="color:rgb(255,255,255)">Recent blog posts</h2>
             </div>
@@ -105,13 +105,16 @@ const posts = (await getCollection('blog')).sort(
               {posts.map((post, i) => (
                 <a class="group" href={`${import.meta.env.BASE_URL}posts/blog/${post.id}`}>
                   <div class="transition-all ease-in-out duration-500" style={`transition-delay:${(i+1)*100}ms`}>
-                    <div class="relative overflow-hidden mb-6 rounded-2xl md:rounded-3xl lg:rounded-4xl">
-                      <div class="relative flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 aspect-w-16 aspect-h-9" 
-                           style={`background-image:url(${post.data.image?.url 
-                             ? (post.data.image.url.startsWith('http') || post.data.image.url.startsWith(import.meta.env.BASE_URL)
-                                 ? post.data.image.url 
-                                 : `${import.meta.env.BASE_URL}${post.data.image.url.startsWith('/') ? post.data.image.url.slice(1) : post.data.image.url}`) 
-                             : `${import.meta.env.BASE_URL}assets/default-blog.jpg`});background-position:center;background-size:cover;color:#FFFFFF`}></div>
+                    <div class="relative overflow-hidden mb-6 rounded-2xl md:rounded-3xl lg:rounded-4xl aspect-w-16 aspect-h-9 shadow-lg">
+                      <img 
+                        src={post.data.image?.url 
+                          ? (post.data.image.url.startsWith('http') || post.data.image.url.startsWith(import.meta.env.BASE_URL)
+                              ? post.data.image.url 
+                              : `${import.meta.env.BASE_URL}${post.data.image.url.startsWith('/') ? post.data.image.url.slice(1) : post.data.image.url}`) 
+                          : `${import.meta.env.BASE_URL}assets/default-blog.jpg`}
+                        alt={post.data.title}
+                        class="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
+                      />
                     </div>
                     <div class="text-center">
                       <h3 class="heading-medium mb-2 group-hover:underline" style="color:rgb(255,255,255)">{post.data.title}</h3>
